@@ -1,0 +1,9 @@
+# local dataset
+data/*.csv
+
+# SQL Server local files
+.DS_Store
+Thumbs.db
+
+#Editor/IDE files
+.vscode/
