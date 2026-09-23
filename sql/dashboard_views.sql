@@ -14,7 +14,7 @@ GO
 -- 1. Portfolio Overview
 -- ============================================================
 
-CREATE VIEW analytics.vw_PortfolioOverview AS
+CREATE OR ALTER VIEW analytics.vw_PortfolioOverview AS
 
 SELECT
     COUNT(*) AS TotalLoans,
@@ -36,7 +36,7 @@ GO
 -- 2. Risk Category Performance
 -- ============================================================
 
-CREATE VIEW analytics.vw_RiskCategoryPerformance AS
+CREATE OR ALTER VIEW analytics.vw_RiskCategoryPerformance AS
 
 SELECT
     risk_category,
@@ -61,7 +61,7 @@ GO
 -- 3. Borrower Risk Profile
 -- ============================================================
 
-CREATE VIEW analytics.vw_BorrowerRiskProfile AS
+CREATE OR ALTER VIEW analytics.vw_BorrowerRiskProfile AS
 
 -- Credit Score
 SELECT
@@ -148,7 +148,7 @@ GO
 -- 4. Loan Characteristics
 -- ============================================================
 
-CREATE VIEW analytics.vw_LoanCharacteristics AS
+CREATE OR ALTER VIEW analytics.vw_LoanCharacteristics AS
 
 -- Loan Purpose
 SELECT
@@ -251,7 +251,7 @@ GO
 -- 5. Risk Exposure
 -- ============================================================
 
-CREATE VIEW analytics.vw_RiskExposure AS
+CREATE OR ALTER VIEW analytics.vw_RiskExposure AS
 
 SELECT
     risk_category,
@@ -275,5 +275,47 @@ SELECT
     ) AS DefaultedExposurePercent
 FROM staging.CreditRiskClean
 GROUP BY risk_category;
+
+GO
+
+-- ============================================================
+-- 6. Detailed Credit Risk Analysis
+-- ============================================================
+
+CREATE OR ALTER VIEW analytics.vw_CreditRiskAnalysis AS
+
+SELECT
+    customer_id,
+    age,
+    gender,
+    marital_status,
+    education_level,
+    employment_status,
+    employment_length_years,
+    home_ownership,
+    annual_income,
+    credit_score,
+    number_of_open_accounts,
+    number_of_credit_inquiries,
+    delinquency_2yrs,
+    previous_defaults,
+    loan_purpose,
+    loan_amount,
+    loan_term_months,
+    interest_rate,
+    debt_to_income_ratio,
+    application_date,
+    loan_status,
+    default_probability,
+    risk_category,
+
+    CASE
+        WHEN credit_score < 580 THEN 'Poor'
+        WHEN credit_score < 670 THEN 'Fair'
+        WHEN credit_score < 740 THEN 'Good'
+        ELSE 'Very Good'
+    END AS RiskBand
+
+FROM staging.CreditRiskClean;
 
 GO
