@@ -41,14 +41,8 @@ SQL analytical views support the following areas:
 
 ## Power BI Dashboards
 
-![Portfolio Overview](screenshots/Portfolio-Overview.png)
-
-![Credit Risk Analysis](screenshots/Credit-Risk-Analysis.png)
-
-![Loan and Borrower Analysis](screenshots/Loan-and-Borrower-Analysis.png)
-
 ### 1. Portfolio Overview
-
+![Portfolio Overview](screenshots/Portfolio-Overview.png)
 Summarises the lending portfolio through key metrics and charts covering:
 
 - Total loan applications.
@@ -58,7 +52,7 @@ Summarises the lending portfolio through key metrics and charts covering:
 - Loan distribution and exposure by risk category.
 
 ### 2. Credit Risk Analysis
-
+![Credit Risk Analysis](screenshots/Credit-Risk-Analysis.png)
 Investigates credit risk patterns through:
 
 - Average default probability by risk category.
@@ -71,7 +65,7 @@ Investigates credit risk patterns through:
 Filters support analysis across employment status, home ownership, education level, marital status, loan amount, and age.
 
 ### 3. Loan and Borrower Analysis
-
+![Loan and Borrower Analysis](screenshots/Loan-and-Borrower-Analysis.png)
 Examines lending behaviour and portfolio performance through:
 
 - Loan volume by purpose.
