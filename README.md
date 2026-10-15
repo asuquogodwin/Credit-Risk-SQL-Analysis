@@ -41,6 +41,12 @@ SQL analytical views support the following areas:
 
 ## Power BI Dashboards
 
+![Portfolio Overview](screenshots/Portfolio-Overview.png)
+
+![Credit Risk Analysis](screenshots/Credit-Risk-Analysis.png)
+
+![Loan and Borrower Analysis](screenshots/Loan-and-Borrower-Analysis.png)
+
 ### 1. Portfolio Overview
 
 Summarises the lending portfolio through key metrics and charts covering:
